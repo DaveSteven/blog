@@ -141,4 +141,4 @@ get 和 set 方法内部的this都指向obj，意味着 get 和 set 函数可以
 > 每个组件每个组件实例都有相应的 watcher 实例对象，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的 setter 被调用时，会通知 watcher 重新计算，从而致使它关联的组件得以更新。-- Vue.js API [深入响应式原理](https://cn.vuejs.org/v2/guide/reactivity.html)
 
 ![](/images/reactivity.png)
-图片地址来源：[https://cn.vuejs.org/v2/guide/reactivity.html](https://cn.vuejs.org/v2/guide/reactivity.html)
+图片来源：[https://cn.vuejs.org/v2/guide/reactivity.html](https://cn.vuejs.org/v2/guide/reactivity.html)
