@@ -1,7 +1,10 @@
 ---
 title: vue-music学习总结
 date: 2018-06-25 10:41:34
+categories:
+- front-end
 tags:
+- Vue.js
 ---
 
 最近在慕课上学习了vue.js开发音乐app的课程，学习到里很多东西，在这里进行总结一下。感兴趣的同学可以去看一下该课程，贴上[课程地址](https://coding.imooc.com/class/107.html)
