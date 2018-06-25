@@ -4,6 +4,7 @@ date: 2018-06-06 19:24:21
 categories:
 - Front-End
 tags:
+- JS
 - encodeURI
 ---
 
@@ -13,3 +14,9 @@ tags:
 
 ### 解决办法
 使用[encodeURI()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI)方法进行处理，将中文参数进行编码即可。
+```Javascript
+const url = 'http://www.xxxx.com';
+const params = `?key=xxxx&${encodeURI(city)}`
+
+this.http.get(url + params);
+```
