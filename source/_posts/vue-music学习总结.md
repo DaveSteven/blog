@@ -60,7 +60,7 @@ tags:
   }
 </script>
 ```
-在父组件中调用
+在父组件中调用：
 ```Html
 <template>
   <div>
@@ -85,8 +85,7 @@ tags:
 
 举个例子：
 我只想在各个方法中使用这个属性（变量）。
-```Html
-<script>
+```Javascript
 export default {
   methods: {
     moveTouchStart(e) {
@@ -106,7 +105,6 @@ export default {
     }
   }
 }
-</script>
 ```
 看到上面的代码应该就很清楚了，this.touch是在方法中随时调用和改写的属性，只需要在this（Vue实例）来添加这个属性，这个属性就会存在于此实例中，可以随时调用或者更改其值。
 
@@ -138,7 +136,7 @@ get 和 set 方法内部的this都指向obj，意味着 get 和 set 函数可以
 
 这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue追踪依赖，在属性被访问和修改时通知变化。
 
-> 每个组件每个组件实例都有相应的 watcher 实例对象，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的 setter 被调用时，会通知 watcher 重新计算，从而致使它关联的组件得以更新。-- Vue.js API [深入响应式原理](https://cn.vuejs.org/v2/guide/reactivity.html)
+> 每个组件实例都有相应的 watcher 实例对象，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的 setter 被调用时，会通知 watcher 重新计算，从而致使它关联的组件得以更新。-- Vue.js API [深入响应式原理](https://cn.vuejs.org/v2/guide/reactivity.html)
 
 ![](/images/reactivity.png)
 图片来源：[https://cn.vuejs.org/v2/guide/reactivity.html](https://cn.vuejs.org/v2/guide/reactivity.html)
