@@ -2,7 +2,7 @@
 title: vue-music学习总结
 date: 2018-06-25 10:41:34
 categories:
-- front-end
+- Front-End
 tags:
 - Vue.js
 ---

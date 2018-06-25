@@ -2,7 +2,7 @@
 title: IE下URL中文参数乱码问题
 date: 2018-06-06 19:24:21
 categories:
-- front-end
+- Front-End
 tags:
 - encodeURI
 ---
