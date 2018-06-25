@@ -21,7 +21,7 @@ tags:
 
 **1) 指向DOM元素**
 可以使用DOM提供的原生方法，设置样式、获取宽高等等。
-```
+```Html
 <template>
   <div>
     <div ref="box1"></div>
@@ -36,7 +36,7 @@ tags:
 **2) 指向组件实例**
 可以调用该组件实例中methods里的方法，用来开发基础组件或者实现一些业务需求。
 比如开发一个最基础的弹窗组件，来控制显示隐藏。
-```
+```Html
 <template>
   <div class="dialog" v-show="showFlag">
     这是一个弹窗组件
@@ -61,7 +61,7 @@ tags:
 </script>
 ```
 在父组件中调用
-```
+```Html
 <template>
   <div>
     <dialog ref="dialog" />
@@ -85,7 +85,7 @@ tags:
 
 举个例子：
 我只想在各个方法中使用这个属性（变量）。
-```
+```Html
 <script>
 export default {
   methods: {
@@ -117,7 +117,7 @@ export default {
 当把一个普通的JavaScript对象传给Vue实例的 data 选项，Vue会遍历此对象所有的属性，并使用 [Object.defineProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) 把这些属性全部转为getter/setter。
 
 示例：
-```
+```Javascript
 let obj = {};
 
 Object.defineProperty(obj, 'name', {
@@ -141,3 +141,4 @@ get 和 set 方法内部的this都指向obj，意味着 get 和 set 函数可以
 > 每个组件每个组件实例都有相应的 watcher 实例对象，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的 setter 被调用时，会通知 watcher 重新计算，从而致使它关联的组件得以更新。-- Vue.js API [深入响应式原理](https://cn.vuejs.org/v2/guide/reactivity.html)
 
 ![](/images/reactivity.png)
+图片地址来源：[https://cn.vuejs.org/v2/guide/reactivity.html](https://cn.vuejs.org/v2/guide/reactivity.html)
