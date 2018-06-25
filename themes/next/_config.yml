@@ -811,3 +811,11 @@ images: images
 
 # Theme version
 version: 5.1.4
+
+# Custom css
+custom_css:
+  # the style of post body link
+  post_body_a:
+    enable: true
+    normal_color: "#1b9ed9"
+    hover_color: "#0477ab"
