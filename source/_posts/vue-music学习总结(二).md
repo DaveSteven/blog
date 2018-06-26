@@ -98,3 +98,34 @@ export default {
 ```
 简而言之，在mixin中添加的data、computed、methods、watch及hook等都会合并到该组件实例中，可以进行调用。
 这样大大减少了代码冗余，提高了灵活性，各个业务组件虽然共用相同的属性及方法，却是独立互不干扰的，为以后的业务扩展提供了极大的方便。
+
+## 4. keep-alive
+
+在vue-music项目中，有4个导航的切换。
+<img src="/images/keep_alive.gif" style="display: inline-block !important">
+导航每次切换时，组件都会再次请求数据并重新渲染，这样的体验很不好，并且增加了网络请求的次数。
+
+使用 `keep-alive` 可解决此问题。
+
+#### 使用方法
+```Html
+<keep-alive>
+  <component></component>
+</keep-alive>
+```
+将需要缓存的组件嵌套在 `keep-alive` 标签中，即可缓存该组件。
+在vue-music项目中四个组件注册在了路由中，并且每个组件都有网络请求，所以为了把所有组件都缓存下来，我将 `router-view` 嵌套在了 `keep-alive` 中。
+```Html
+<template>
+  <div id="app">
+    ...
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
+    ...
+  </div>
+</template>
+```
+
+**使用之后**
+<img src="/images/keep_alive2.gif" style="display: inline-block !important">
