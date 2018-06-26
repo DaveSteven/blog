@@ -132,10 +132,10 @@ Object.defineProperty(obj, 'name', {
   }
 })
 
-obj.name  // get方法被调用了
-obj.name = 'Dave'  //set方法被调用了，值为：Dave
+obj.name  // => get方法被调用了
+obj.name = 'Dave'  // => set方法被调用了，值为：Dave
 ```
-get 和 set 方法内部的this都指向obj，意味着 get 和 set 函数可以操作对象内部的值。
+get/set 方法内部的this都指向obj，意味着 get/set 函数可以操作对象内部的值。
 
 这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue追踪依赖，在属性被访问和修改时通知变化。
 
