@@ -35,7 +35,7 @@ var mixin = {
 #### 使用方法
 在开发过程中，不少业务组件共用相同的代码，都可以提取到mixin中。
 
-**示例：搜索业务**
+##### 示例：搜索业务
 ```Javascript
 export const searchMixin = {
   data() {
@@ -136,6 +136,7 @@ Vue.js 2.1.0 新增了两个属性：
 - exclude
 
 > `include` 和 `exclude` 属性允许组件有条件地缓存。二者都可以用逗号分隔字符串、正则表达式或一个数组来表示：
+
 ```Html
 <!-- 逗号分隔字符串 -->
 <keep-alive include="a,b">
