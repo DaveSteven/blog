@@ -815,7 +815,13 @@ version: 5.1.4
 # Custom css
 custom_css:
   # the style of post body link
-  post_body_a:
+  post_body:
     enable: true
+    
+  post_body_a:
     normal_color: "#1b9ed9"
     hover_color: "#0477ab"
+
+  post_body_code:
+    normal_color: "#e96900"
+    background_color: "#f8f8f8"

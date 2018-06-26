@@ -1,5 +1,5 @@
 ---
-title: vue-music学习总结（1）
+title: vue-music学习总结(一)
 date: 2018-06-25 10:41:34
 categories:
 - Front-End
@@ -17,10 +17,10 @@ tags:
 
 ## 1. 在父组件中可以调用子组件的方法
 
-为子组件添加 ref 引用，可以通过this.$refs.chilren.fn()调用该组件的方法来实现业务需求或者开发基础组件。
+为子组件添加 `ref` 引用，可以通过this.$refs.chilren.fn()调用该组件的方法来实现业务需求或者开发基础组件。
 
 ### 引申：Vue中的 ref
-> ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例。-- Vue.js API [#ref](https://cn.vuejs.org/v2/api/#ref)
+> `ref` 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例。-- Vue.js API [#ref](https://cn.vuejs.org/v2/api/#ref)
 
 **1) 指向DOM元素**
 可以使用DOM提供的原生方法，设置样式、获取宽高等等。
