@@ -127,5 +127,73 @@ export default {
 </template>
 ```
 
-**使用之后**
+来看一下使用 `keep-alive` 之后的效果：
 <img src="/images/keep_alive2.gif" style="display: inline-block !important">
+
+#### 扩展
+Vue.js 2.1.0 新增了两个属性：
+- include
+- exclude
+
+> `include` 和 `exclude` 属性允许组件有条件地缓存。二者都可以用逗号分隔字符串、正则表达式或一个数组来表示：
+```Html
+<!-- 逗号分隔字符串 -->
+<keep-alive include="a,b">
+  <component :is="view"></component>
+</keep-alive>
+
+<!-- 正则表达式 (使用 `v-bind`) -->
+<keep-alive :include="/a|b/">
+  <component :is="view"></component>
+</keep-alive>
+
+<!-- 数组 (使用 `v-bind`) -->
+<keep-alive :include="['a', 'b']">
+  <component :is="view"></component>
+</keep-alive>
+```
+匹配首先检查组件自身的 `name` 选项，如果 `name` 选项不可用，则匹配它的局部注册名称 (父组件 `components` 选项的键值)。匿名组件不能被匹配。
+
+#### 示例
+还是看vue-music中的代码，如果只想缓存两个组件的话，可以这样做：
+
+先为每个组件添加 `name` 属性。
+```Javascript
+...
+export default {
+  name: 'recommend'
+  ...
+}
+```
+
+然后在 `keep-alive` 中添加要缓存的组件名：
+```Html
+<template>
+  <div id="app">
+    ...
+    <keep-alive :include="['recommend', 'search']">
+      <router-view/>
+    </keep-alive>
+    ...
+  </div>
+</template>
+```
+看效果：
+<img src="/images/keep_alive3.gif" style="display: inline-block !important">
+只有歌手和排行页面在每次切换时会再次进行网络请求，推荐和搜索在首次加载后进行了缓存。
+这里我使用了数组的形式传递，当然使用正则表达式匹配也是没有问题的。
+但是使用字符串格式进行匹配，只会对第一个组件进行缓存：
+```Html
+<template>
+  <div id="app">
+    ...
+    <keep-alive include="recommend, search">
+      <router-view/>
+    </keep-alive>
+    ...
+  </div>
+</template>
+```
+尚未确定到底是什么问题。
+
+`exclude` 属性顾名思义，匹配到的组件是不进行缓存的。
