@@ -102,8 +102,8 @@ export default {
 ## 4. keep-alive
 
 在vue-music项目中，有4个导航的切换。
-<img src="/images/keep_alive.gif" style="display: inline-block !important">
 导航每次切换时，组件都会再次请求数据并重新渲染，这样的体验很不好，并且增加了网络请求的次数。
+<img src="/images/keep_alive.gif" style="display: inline-block !important">
 
 使用 `keep-alive` 可解决此问题。
 
