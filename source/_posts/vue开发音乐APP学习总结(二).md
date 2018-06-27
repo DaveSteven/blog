@@ -1,5 +1,5 @@
 ---
-title: vue-music学习总结(二)
+title: vue开发音乐APP学习总结(二)
 date: 2018-06-26 11:18:13
 categories:
 - Front-End
