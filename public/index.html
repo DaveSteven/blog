@@ -266,6 +266,162 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/vue开发音乐APP学习总结(三)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dave">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dave's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/04/vue开发音乐APP学习总结(三)/" itemprop="url">vue开发音乐APP学习总结(三)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T15:41:23+08:00">
+                2018-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Front-End/" itemprop="url" rel="index">
+                    <span itemprop="name">Front-End</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在学习的过程中，学到了关于开发上的一些经验，在这里分享一下：</p>
+<ol>
+<li>项目结构很重要。关于项目结构，每个人的开发习惯不同，公司的项目情况不同，好的项目结构起着至关重要的作用，它能够帮助你快速地梳理并理解项目具体的业务。那么在vue-music中，是这样划分项目目录的：<ul>
+<li>api，所有的接口信息</li>
+<li>base，所有的基础组件</li>
+<li>common，基础样式，基础js，字体资源，图片</li>
+<li>components，所有的业务组件</li>
+<li>router，路由配置文件</li>
+<li>store，vuex相关文件</li>
+</ul>
+</li>
+<li>只做单纯的事。项目中重复使用的组件代码，我们一般会封装成公共组件。那么在封装公共组件时候要注意，避免对接收的数据进行处理，只需做一些消息的通知即可，具体业务的处理由父组件去处理。<br>比如一个歌曲列表页，歌曲被点击了，只要告诉父组件这个歌曲被点击了，并将该歌曲传给父组件就好，至于父组件再做什么处理，那就跟子组件没关系了。</li>
+<li>保证每一个公共组件是独立维护的。也就是说，公共组件需要的图片、样式，都放在一处管理。<br>在vue-music项目中，基础的公共组件都放在了<code>base/</code> 目录下，每个组件都是一个文件夹，里面包含了vue文件和图片文件，每个组件的样式都写在了 <code>&lt;style scoped&gt;&lt;/style&gt;</code>中。</li>
+<li>准确命名。不管是组件名还是函数名，准确命名是非常重要的，它能够清晰的表达该组件/函数表达的意思。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/Javascript中的this关键字(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -939,7 +1095,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
