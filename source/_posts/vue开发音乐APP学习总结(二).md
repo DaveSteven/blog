@@ -20,13 +20,13 @@ var mixin = {
   created() {
     console.log(1);
   }
-  var vm = new Vue({
-    created() {
-      console.log(2);
-    },
-    mixins: [mixin]
-  })
 }
+var vm = new Vue({
+  created() {
+      console.log(2);
+  },
+  mixins: [mixin]
+})
 
 // => 1
 // => 2

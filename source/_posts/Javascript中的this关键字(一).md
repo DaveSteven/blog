@@ -22,7 +22,7 @@ foo = 'abc';
 console.log(foo);  // => abc
 
 this.foo = 'def';
-console.log(def)  // => def
+console.log(foo)  // => def
 ```
 当你在全局环境（不是在function中）中使用 `this` 关键字，它总是指向全局对象。现在让我们看一下 `this` 在function中的例子：
 ```Javascript
