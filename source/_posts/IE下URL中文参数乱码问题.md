@@ -4,7 +4,7 @@ date: 2018-06-06 19:24:21
 categories:
 - Front-End
 tags:
-- JS
+- Javascript
 - encodeURI
 ---
 
