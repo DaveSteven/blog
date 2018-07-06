@@ -11,3 +11,13 @@ if hexo-config("custom_css.post_body.enable")
     code
       color: convert(hexo-config("custom_css.post_body_code.normal_color"))
       background-color: convert(hexo-config("custom_css.post_body_code.background_color"))
+
+    .btn
+      border-color: convert(hexo-config("custom_css.post_body_btn.border_color"))
+      border-bottom: 2px solid convert(hexo-config("custom_css.post_body_btn.border_color"))
+
+      &:hover
+        background: convert(hexo-config("custom_css.post_body_btn.hover_background_color"))
+
+  .site-author-image
+    border-radius: 50%;
