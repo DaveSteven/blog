@@ -5,7 +5,7 @@ categories:
 - Front-End
 tags:
 - Javascript
-- encodeURI
+- Work
 ---
 
 ### 问题排查
