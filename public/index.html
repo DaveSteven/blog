@@ -266,6 +266,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/RegExp学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dave">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dave's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/14/RegExp学习笔记/" itemprop="url">RegExp学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-14T11:12:40+08:00">
+                2018-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Front-End/" itemprop="url" rel="index">
+                    <span itemprop="name">Front-End</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>自己在正则表达式方面一直很薄弱，平时工作中感觉也很少用到，其实是自己没有掌握，想不到用而已。当用到的时候，在百度copy一下，并没有去深入研究过。为了提升自己，为了以后更好的机会，巩固JS基础是刻不容缓的，所以先从正则表达式开始学习。花了大概一天的时间，结合慕课网的视频，把正则的知识点整理了一下。</p>
+<p>首先介绍一款很实用的图形工具：<a href="https://github.com/javallone/regexper-static" target="_blank" rel="noopener">regexper-static</a>。该工具能够直观的展示一个正则表达式是如何进行匹配的，来看一下匹配邮箱的正则转成图形如何表示：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> re = <span class="regexp">/^[0-9a-zA-Z._]+@[0-9a-zA-Z-]+(\.[a-z]+)+$/</span>;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/regexp_email.png" style="display: inline-block !important"><br>是不是很神奇？分析起来也很容易，这款工具极大的提高了我学习正则的效率。接下来进入正题：</p>
+<h2 id="1、RegExp-对象"><a href="#1、RegExp-对象" class="headerlink" title="1、RegExp 对象"></a>1、RegExp 对象</h2><p>RegExp 是 JavaScript 内置对象。<br>有两种方法可以实例化 RegExp 对象：</p>
+<h4 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h4><p>创建的时候，需要有两个<code>/</code>包围：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> re = <span class="regexp">/is/</span>;  <span class="comment">// 匹配is</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>可以传两个参数，第一个为表达式，第二个为修饰符，修饰符接下来会讲。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'is'</span>);  <span class="comment">// 匹配is</span></span><br></pre></td></tr></table></figure></p>
+<p>我们可以用创建的正则表达式做一些事情，比如说把 <code>is</code> 替换为 <code>IS</code> ：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> re = <span class="regexp">/is/g</span>;</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'This is a apple'</span>;</span><br><span class="line"><span class="keyword">let</span> ret = str.replace(re, <span class="string">'IS'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(ret);  <span class="comment">// =&gt; ThIS IS a apple</span></span><br></pre></td></tr></table></figure></p>
+<p>我们可以看到 <code>str</code> 中所有的 <code>is</code> 都替换成了 <code>IS</code> ，那么如果我只想匹配 <code>is</code> 这个单词，并不想匹配包含 <code>is</code> 的单词，该如何做？可以加入 <code>\b</code> 单词边界进行匹配：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> re = <span class="regexp">/\bis\b/g</span>;</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'This is a apple'</span>;</span><br><span class="line"><span class="keyword">let</span> ret = str.replace(re, <span class="string">'IS'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(ret);  <span class="comment">// =&gt; This IS a apple</span></span><br></pre></td></tr></table></figure></p>
+<p><code>\b</code> 是用来匹配一个字边界，即字与空格间的位置。</p>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p>在 JavaScript 中，常用的修饰符有：</p>
+<h4 id="i，不区分（ignore）大小写"><a href="#i，不区分（ignore）大小写" class="headerlink" title="i，不区分（ignore）大小写"></a>i，不区分（ignore）大小写</h4><p>例：匹配 <code>de</code> ， 替换为 <code>X</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> re = <span class="regexp">/de/ig</span>;</span><br><span class="line"><span class="keyword">const</span> str = <span class="string">'abcDe'</span>;</span><br><span class="line"><span class="keyword">let</span> ret = str.replace(re, <span class="string">'X'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(ret);  <span class="comment">// =&gt; abcX</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="g，全局（global）匹配"><a href="#g，全局（global）匹配" class="headerlink" title="g，全局（global）匹配"></a>g，全局（global）匹配</h4><p>例：匹配所有的 <code>_</code> ，替换为 <code>仙女</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> re = <span class="regexp">/_/g</span>;</span><br><span class="line"><span class="keyword">const</span> str = <span class="string">'从前有座_山，_山上住着小_'</span>;</span><br><span class="line"><span class="keyword">let</span> ret = str.replace(re, <span class="string">'仙女'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(ret);  <span class="comment">// =&gt; 从前有座仙女山，仙女山上住着小仙女</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="m，多（more）行匹配"><a href="#m，多（more）行匹配" class="headerlink" title="m，多（more）行匹配"></a>m，多（more）行匹配</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/25/通过POST请求下载Excel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1367,7 +1520,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
