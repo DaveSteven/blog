@@ -39,6 +39,7 @@ axios.post({
   downloadExcel(res, filename);
 })
 ```
+<!-- more -->
 在请求的这一步，axios中有个responseType属性，主要是用来设置服务端返回的数据类型，默认为 `json` ，我们这里设置为 [arraybuffer](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)。
 为了方便以后使用，我把下载Excel的方法封装起来了。请求成功后，执行 `downloadExcel()` 方法，来看一下 `downloadExcel()` 代码：
 ```Javascript
