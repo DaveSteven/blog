@@ -91,10 +91,10 @@ live2d:
   tagMode: false
   log: false
   model:
-    use: live2d-widget-model-hijiki
+    use: live2d-widget-model-wanko
   display:
     position: right
-    width: 150
-    height: 300
+    width: 180
+    height: 180
   mobile:
     show: true
